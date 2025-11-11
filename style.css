@@ -5,10 +5,23 @@
   padding: 0;
 }
 
+/* Brand color variables (L'Oréal-inspired) */
+:root {
+  /* Primary */
+  --brand-black: #000000;
+  /* Warm gold accent for a premium feel */
+  --brand-gold: #b58b2e;
+  /* Main text and muted tones */
+  --text-color: #222222;
+  --muted: #6b6b6b;
+  /* Very light warm background for content panels */
+  --panel-bg: #fbf8f6;
+}
+
 /* —— body + fonts —— */
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  color: #333;
+  color: var(--text-color);
   display: flex;
   justify-content: center;
 }
@@ -45,7 +58,7 @@ body {
 
 .logo-link:focus,
 .footer-logo-link:focus {
-  outline: 3px solid rgba(0, 0, 0, 0.12);
+  outline: 3px solid rgba(181, 139, 46, 0.14); /* subtle gold focus */
   outline-offset: 3px;
 }
 
@@ -56,12 +69,12 @@ body {
 
 .chat-window {
   height: 360px;
-  border: 1px solid #000;
+  border: 1px solid rgba(0, 0, 0, 0.12);
   padding: 20px;
   font-size: 18px;
   line-height: 1.5;
   overflow-y: auto;
-  background: #fafafa;
+  background: var(--panel-bg);
   white-space: pre-line;
 }
 
@@ -72,11 +85,11 @@ body {
 }
 
 .msg.user {
-  color: #000;
+  color: var(--brand-black);
 }
 
 .msg.ai {
-  color: #666666;
+  color: var(--muted);
 }
 
 /* input row */
@@ -100,7 +113,7 @@ body {
 
 .chat-form button {
   font-size: 18px;
-  background: #000;
+  background: var(--brand-black);
   color: #fff;
   border: none;
   padding: 12px;
@@ -110,7 +123,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.15s;
 }
 
 .chat-form button .material-icons {
@@ -118,11 +131,12 @@ body {
 }
 
 .chat-form button:hover {
-  background: #666666;
+  background: var(--brand-gold);
+  color: var(--brand-black);
 }
 
 .chat-form button:focus {
-  outline: 2px solid #000;
+  outline: 2px solid rgba(181, 139, 46, 0.25); /* soft gold focus */
   outline-offset: 2px;
 }
 
@@ -144,7 +158,7 @@ body {
   margin: 60px 0 40px;
   text-align: center;
   font-size: 14px;
-  color: #666;
+  color: var(--muted);
 }
 
 .footer-inner {
@@ -166,12 +180,12 @@ body {
 
 .site-footer a {
   margin: 0 8px;
-  color: #000;
+  color: var(--brand-black);
   text-decoration: none;
 }
 
 .site-footer a:hover {
-  color: #666666;
+  color: var(--brand-gold);
 }
 
 /* Responsive: center header logo and title on small screens */
