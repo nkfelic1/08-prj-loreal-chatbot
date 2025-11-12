@@ -20,7 +20,7 @@
 
 /* —— body + fonts —— */
 body {
-  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Now Display W05 Cn Bd", Arial, sans-serif;
   color: var(--text-color);
   display: flex;
   justify-content: center;
@@ -48,6 +48,7 @@ body {
   font-size: 22px;
   font-weight: 500;
   margin: 0; /* handled by layout */
+  font-family: 'Bauer Bodoni W02 Bold';
 }
 
 .logo {
