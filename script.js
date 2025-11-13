@@ -235,12 +235,6 @@ Only answer beauty- or L'Oreal-related questions; always suggest a specific L'Or
 ];
 
 async function sendMessageToOpenAI(message) {
-  if (typeof OPENAI_API_KEY === "undefined" || !OPENAI_API_KEY) {
-    throw new Error(
-      "OpenAI API key is not defined. Please set your API key in secrets.js."
-    );
-  }
-
   const url = "https://loreal-worker.nkfelic1.workers.dev/";
 
   // Build messages: include base chatHistory (system prompt), then any context summary, then the user's message
