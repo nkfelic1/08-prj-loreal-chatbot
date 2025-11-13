@@ -264,12 +264,13 @@ async function sendMessageToOpenAI(message) {
     frequency_penalty: 0,
     presence_penalty: 0,
   };
+  // Debug: log outgoing body so we can confirm the client is sending valid JSON
+  console.debug("Sending worker request body:", body);
 
   const response = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${OPENAI_API_KEY}`,
     },
     body: JSON.stringify(body),
   });
