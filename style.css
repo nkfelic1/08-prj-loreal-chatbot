@@ -48,7 +48,7 @@ body {
   font-size: 22px;
   font-weight: 500;
   margin: 0; /* handled by layout */
-  font-family: 'Bauer Bodoni W02 Bold';
+  font-family: "Bauer Bodoni W02 Bold";
 }
 
 .logo {
@@ -83,6 +83,144 @@ body {
 .msg {
   margin-bottom: 14px;
   line-height: 1.5;
+}
+
+/* Message bubble layout */
+.msg {
+  display: flex;
+  align-items: flex-end;
+}
+
+.msg .msg-content {
+  max-width: 78%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  background: #fff;
+  color: var(--text-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  line-height: 1.4;
+}
+
+.msg .msg-ts {
+  font-size: 11px;
+  color: var(--muted);
+  margin-left: 8px;
+  margin-bottom: 2px;
+  opacity: 0.9;
+}
+
+/* Avatar styles */
+.msg-avatar {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.avatar-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.avatar-user {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-black);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* AI messages: left aligned, subtle panel */
+.msg.ai {
+  justify-content: flex-start;
+}
+
+.msg.ai .msg-content {
+  background: var(--panel-bg);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--text-color);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* User messages: right aligned, gold bubble */
+.msg.user {
+  justify-content: flex-end;
+}
+
+.msg.user .msg-content {
+  background: var(--brand-gold);
+  color: var(--brand-black);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 12px;
+}
+
+/* When user message is right-aligned, avatar is on the right */
+.msg.user .msg-avatar {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+/* Timestamp alignment: place beside bubbles on desktop, under on small screens */
+.msg.user .msg-ts {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.msg.ai .msg-ts {
+  margin-left: 8px;
+}
+
+@media (max-width: 600px) {
+  .msg .msg-content {
+    max-width: 90%;
+    padding: 10px 12px;
+  }
+
+  .msg .msg-ts {
+    display: block;
+    width: 100%;
+    text-align: right;
+    margin-left: 0;
+    margin-top: 6px;
+  }
+}
+
+/* Enter animation for new messages */
+.msg-enter {
+  opacity: 0;
+  transform: translateY(6px) scale(0.995);
+  animation: msg-enter 260ms cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+}
+
+@keyframes msg-enter {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Smooth transitions for bubble color and shadow */
+.msg .msg-content {
+  transition: background 200ms ease, box-shadow 180ms ease, transform 160ms ease;
+}
+
+.msg .msg-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .msg.user {
