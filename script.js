@@ -241,7 +241,7 @@ async function sendMessageToOpenAI(message) {
     );
   }
 
-  const url = "https://api.openai.com/v1/chat/completions";
+  const url = "https://loreal-worker.nkfelic1.workers.dev/";
 
   // Build messages: include base chatHistory (system prompt), then any context summary, then the user's message
   const messages = chatHistory.map((m) => ({
